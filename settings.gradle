@@ -1,0 +1,6 @@
+include ':app'
+include ':Ico'
+include ':BdSpeech'
+include ':BdTts'
+include ':BdSpeechSample'
+include ':BdTtsSample'

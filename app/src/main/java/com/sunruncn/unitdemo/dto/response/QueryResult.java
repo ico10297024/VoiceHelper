@@ -86,6 +86,8 @@ public class QueryResult {
      * 意图候选项
      */
     public static class Candidates {
+        //解析结果整体的（综合意图和词槽）置信度，如果返回结果中无该字段，请重新训练后尝试。
+        private float confidence;
         //候选项意图名称
         private String intent;
         //候选项意图置信度
@@ -103,6 +105,14 @@ public class QueryResult {
         //候选项附加信息
         //kvdict
         private Map extra_info;
+
+        public float getConfidence() {
+            return confidence;
+        }
+
+        public void setConfidence(float confidence) {
+            this.confidence = confidence;
+        }
 
         public String getIntent() {
             return intent;

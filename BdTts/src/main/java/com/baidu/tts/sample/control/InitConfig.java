@@ -42,9 +42,9 @@ public class InitConfig {
 
     }
 
-    public InitConfig(String appId, String appKey, String secretKey, TtsMode ttsMode,
+    public InitConfig(int appId, String appKey, String secretKey, TtsMode ttsMode,
                       Map<String, String> params, SpeechSynthesizerListener listener) {
-        this.appId = appId;
+        this.appId = appId + "";
         this.appKey = appKey;
         this.secretKey = secretKey;
         this.ttsMode = ttsMode;

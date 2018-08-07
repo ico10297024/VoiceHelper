@@ -49,6 +49,10 @@ public class MainActivity extends BaseFragActivity implements IStatus {
             if (statusCode != 200 || baseDTO == null) {
                 return super.chat(statusCode, baseDTO);
             }
+            if (baseDTO.getError_code() != 0) {
+                Toast.makeText(mActivity, baseDTO.getError_msg(), Toast.LENGTH_SHORT).show();
+                return true;
+            }
             Actions[] list = baseDTO.getResult().getResponse().getAction_list();
             Chat chat = new Chat(list[list.length - 1].getSay(), 1, baseDTO);
             myAdapter.addData(0, chat);
@@ -58,6 +62,10 @@ public class MainActivity extends BaseFragActivity implements IStatus {
             return true;
         }
     };
+    /**
+     * 语音回调
+     * {@link com.baidu.android.voicedemo.recognization.MessageStatusRecogListener}
+     */
     Handler handler = new Handler() {
         @Override
         public void handleMessage(Message msg) {
@@ -71,6 +79,7 @@ public class MainActivity extends BaseFragActivity implements IStatus {
 //                    txtResult.setText(msg.obj.toString());
                         myAdapter.addData(0, new Chat(msg.obj.toString(), 0));
                         myAdapter.notifyDataSetChanged();
+                        String aa = msg.obj.toString();
                         try {
                             HttpServer.chat(mActivity, chatCallback, SPU.getAccessToken(mActivity), msg.obj.toString(), myAdapter.getItemCount() + "");
                         } catch (Exception e) {
@@ -166,7 +175,6 @@ public class MainActivity extends BaseFragActivity implements IStatus {
         Chat chat = new Chat(data, 0);
         try {
             HttpServer.chat(this, chatCallback, SPU.getAccessToken(mActivity), data, myAdapter.getItemCount() + "");
-            myAdapter.addData(0, chat);
             myAdapter.notifyDataSetChanged();
             etData.setText("");
         } catch (Exception e) {

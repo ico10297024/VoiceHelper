@@ -49,7 +49,8 @@ public class MessageStatusRecogListener extends StatusRecogListener {
         super.onAsrFinalResult(results, recogResult);
 //        String message = "识别结束，结果是”" + results[0] + "”";
 //        sendStatusMessage(message + "“；原始json：" + recogResult.getOrigalJson());
-        String message = results[0];
+        //这里的数据,如果使用json进行序列化,会在末尾有个换行的字符串,所以需要trim一下
+        String message = results[0].trim();
         sendStatusMessage(message);
         if (speechEndTime > 0) {
             long diffTime = System.currentTimeMillis() - speechEndTime;

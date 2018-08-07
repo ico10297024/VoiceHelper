@@ -46,7 +46,7 @@ public class SynthActivity extends BaseActivity {
      * 发布时请替换成自己申请的appId appKey 和 secretKey。注意如果需要离线合成功能,请在您申请的应用中填写包名。
      * 本demo的包名是com.baidu.tts.sample，定义在build.gradle中。
      */
-    protected String appId;
+    protected int appId;
     protected String appKey;
     protected String secretKey;
 
@@ -64,7 +64,7 @@ public class SynthActivity extends BaseActivity {
         super(activity, handler);
         try {
             Bundle metaData = mActivity.getPackageManager().getApplicationInfo(mActivity.getPackageName(), PackageManager.GET_META_DATA).metaData;
-            appId = metaData.getString("com.baidu.speech.APP_ID");
+            appId = metaData.getInt("com.baidu.speech.APP_ID", 0);
             appKey = metaData.getString("com.baidu.speech.API_KEY");
             secretKey = metaData.getString("com.baidu.speech.SECRET_KEY");
         } catch (PackageManager.NameNotFoundException e) {

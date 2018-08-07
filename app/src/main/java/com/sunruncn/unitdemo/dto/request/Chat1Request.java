@@ -34,9 +34,12 @@ public class Chat1Request {
      */
     @Nullable
     private String updates;
-    //影响UNIT内部行为的超参数,支持以string为key，以double、int、string为value的KV。
+    /**
+     * 影响UNIT内部行为的超参数,支持以string为key，以double、int、string为value的KV。
+     * {@link HyperParamsRequest}
+     */
     @Nullable
-    private HyperParamsRequest hyper_params;
+    private String hyper_params = "";
 
     public String getUser_id() {
         return user_id;
@@ -89,11 +92,11 @@ public class Chat1Request {
     }
 
     @Nullable
-    public HyperParamsRequest getHyper_params() {
+    public String getHyper_params() {
         return hyper_params;
     }
 
-    public void setHyper_params(@Nullable HyperParamsRequest hyper_params) {
+    public void setHyper_params(@Nullable String hyper_params) {
         this.hyper_params = hyper_params;
     }
 

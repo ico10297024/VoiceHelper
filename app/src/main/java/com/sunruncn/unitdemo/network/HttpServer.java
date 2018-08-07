@@ -59,8 +59,8 @@ public class HttpServer {
         chat1Request.setQuery_info(new Chat1Request.QueryInfoRequest());
 
         HashMap<String, Object> client_session = new HashMap<>();
-        client_session.put("client_results", null);
-        client_session.put("candidate_options", null);
+        client_session.put("client_results", "");
+        client_session.put("candidate_options", new Object[0]);
 
         chat1Request.setClient_session(objectMapper.writeValueAsString(client_session));
 

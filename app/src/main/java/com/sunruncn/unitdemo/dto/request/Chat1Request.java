@@ -39,7 +39,7 @@ public class Chat1Request {
      * {@link HyperParamsRequest}
      */
     @Nullable
-    private String hyper_params = "";
+    private HyperParamsRequest hyper_params;
 
     public String getUser_id() {
         return user_id;
@@ -92,11 +92,11 @@ public class Chat1Request {
     }
 
     @Nullable
-    public String getHyper_params() {
+    public HyperParamsRequest getHyper_params() {
         return hyper_params;
     }
 
-    public void setHyper_params(@Nullable String hyper_params) {
+    public void setHyper_params(@Nullable HyperParamsRequest hyper_params) {
         this.hyper_params = hyper_params;
     }
 

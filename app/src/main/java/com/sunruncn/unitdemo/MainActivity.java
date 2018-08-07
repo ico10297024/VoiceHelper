@@ -174,6 +174,7 @@ public class MainActivity extends BaseFragActivity implements IStatus {
         Chat chat = new Chat(data, 0);
         try {
             HttpServer.chat(this, chatCallback, SPU.getAccessToken(mActivity), data, myAdapter.getItemCount() + "");
+            myAdapter.addData(0, chat);
             myAdapter.notifyDataSetChanged();
             etData.setText("");
         } catch (Exception e) {

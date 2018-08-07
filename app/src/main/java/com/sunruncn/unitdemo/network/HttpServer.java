@@ -2,6 +2,7 @@ package com.sunruncn.unitdemo.network;
 
 import android.content.Context;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.sunruncn.unitdemo.dto.AccessTokenDTO;
@@ -52,6 +53,7 @@ public class HttpServer {
             , String log_id
     ) throws JsonProcessingException {
         ObjectMapper objectMapper = new ObjectMapper();
+        objectMapper.setSerializationInclusion(JsonInclude.Include.NON_NULL);
 
         Chat1Request chat1Request = new Chat1Request();
         chat1Request.setUser_id(Common.getUniqueId(context));
@@ -71,6 +73,7 @@ public class HttpServer {
 
         String json = objectMapper.writeValueAsString(chatRequest);
 //        String json = JSON.toJSONString(chatRequest);
+//        String json = "{\"bot_session\":\"\",\"log_id\":\"0\",\"request\":{\"bernard_level\":1,\"query\":\"开办公室门\",\"query_info\":{\"asr_candidates\":[],\"source\":\"KEYBOARD\",\"type\":\"TEXT\"},\"updates\":\"\",\"user_id\":\"dd0675d491044abfbbdacc63b5f48085\",\"client_session\":\"{\\\"client_results\\\":\\\"\\\", \\\"candidate_options\\\":[]}\"},\"bot_id\":\"7848\",\"version\":\"2.0\"}";
         MediaType JSON = MediaType.parse("application/json; charset=utf-8");
         RequestBody body = RequestBody.create(JSON, json);
 

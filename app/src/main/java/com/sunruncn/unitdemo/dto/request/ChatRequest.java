@@ -8,7 +8,7 @@ public class ChatRequest {
     //当前api版本对应协议版本号为2.0，固定值
     private String version = "2.0";
     //BOT唯一标识，在『我的BOT』的BOT列表中第一列数字即为bot_id
-    private String bot_id = "7848";
+    private String bot_id = "9550";
     //开发者需要在客户端生成的唯一id，用来定位请求，响应中会返回该字段。对话中每轮请求都需要一个log_id。
     private String log_id;
     //本轮请求体

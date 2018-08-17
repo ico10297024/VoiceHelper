@@ -15,18 +15,22 @@ android {
 //        buildConfigField "String", "APP_ID", "\"11563705\""
 //        buildConfigField "String", "API_KEY", "\"70APxwzdfvAMpBDMIzswTVbo\""
 //        buildConfigField "String", "SECRET_KEY", "\"DtHKebPHeqj67kcaavsP6TLfbGYVh18x\""
+        manifestPlaceholders = [
+                APP_ID     : "11563705",
+                API_KEY    : "70APxwzdfvAMpBDMIzswTVbo",
+                SECRET_KEY : "DtHKebPHeqj67kcaavsP6TLfbGYVh18x",
+                PGYER_APPID: "6346c15101c396b2f4fb61816bc42abb"]
+
     }
     buildTypes {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
             buildConfigField "boolean", "IGNOREUNKNOWN", "true"
-            manifestPlaceholders = [APP_ID: "11563705", API_KEY: "70APxwzdfvAMpBDMIzswTVbo", SECRET_KEY: "DtHKebPHeqj67kcaavsP6TLfbGYVh18x"]
         }
         debug {
             debuggable true
             buildConfigField "boolean", "IGNOREUNKNOWN", "false"
-            manifestPlaceholders = [APP_ID: "11563705", API_KEY: "70APxwzdfvAMpBDMIzswTVbo", SECRET_KEY: "DtHKebPHeqj67kcaavsP6TLfbGYVh18x"]
         }
     }
     /*jackson和RX必要配置,该配置需要设置到app的build中*/

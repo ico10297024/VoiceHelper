@@ -25,6 +25,16 @@ public class QueryResult {
     private LexicalAnalysis[] lexical_analysis;
     //query的情感分析结果
     private SentimentAnalysis sentiment_analysis;
+    //TODO
+    private NerlResult[] nerl_result;
+
+    public NerlResult[] getNerl_result() {
+        return nerl_result;
+    }
+
+    public void setNerl_result(NerlResult[] nerl_result) {
+        this.nerl_result = nerl_result;
+    }
 
     public long getTimestamp() {
         return timestamp;
@@ -343,6 +353,39 @@ public class QueryResult {
 
         public void setPval(float pval) {
             this.pval = pval;
+        }
+    }
+
+    /**
+     * TODO
+     */
+    public static class NerlResult {
+        private String name;
+        private String etype;
+        private String etypes[];
+
+        public String getName() {
+            return name;
+        }
+
+        public void setName(String name) {
+            this.name = name;
+        }
+
+        public String getEtype() {
+            return etype;
+        }
+
+        public void setEtype(String etype) {
+            this.etype = etype;
+        }
+
+        public String[] getEtypes() {
+            return etypes;
+        }
+
+        public void setEtypes(String[] etypes) {
+            this.etypes = etypes;
         }
     }
 }

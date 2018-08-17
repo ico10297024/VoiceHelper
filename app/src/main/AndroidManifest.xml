@@ -32,6 +32,12 @@
             android:name="com.baidu.speech.SECRET_KEY"
             android:value="${SECRET_KEY}" />
         <!--</editor-fold>-->
+
+        <!--<editor-fold desc="蒲公英">-->
+        <meta-data
+            android:name="PGYER_APPID"
+            android:value="${PGYER_APPID}"></meta-data>
+        <!--</editor-fold>-->
     </application>
 
 </manifest>

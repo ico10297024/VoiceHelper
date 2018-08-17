@@ -14,6 +14,7 @@ import android.widget.Toast;
 import com.baidu.android.voicedemo.activity.ActivityRecog;
 import com.baidu.android.voicedemo.recognization.IStatus;
 import com.baidu.tts.sample.SynthActivity;
+import com.pgyersdk.update.PgyUpdateManager;
 import com.sunruncn.unitdemo.dto.AccessTokenDTO;
 import com.sunruncn.unitdemo.dto.response.Actions;
 import com.sunruncn.unitdemo.dto.response.ChatResponse;
@@ -162,6 +163,7 @@ public class MainActivity extends BaseFragActivity implements IStatus {
 
         activityRecog = new ActivityRecog(mActivity, handler);
         synthActivity = new SynthActivity(mActivity, handler);
+        PgyUpdateManager.register(mActivity);
     }
 
     @OnClick(R.id.btn_send)

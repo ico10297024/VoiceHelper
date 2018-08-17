@@ -91,7 +91,7 @@ public class Actions {
          * clarify时有值，表明起因
          * {@link Actions#type}
          */
-        private float clarify_reason;
+        private String clarify_reason;
 
         public String getInteract() {
             return interact;
@@ -109,11 +109,11 @@ public class Actions {
             this.option_list = option_list;
         }
 
-        public float getClarify_reason() {
+        public String getClarify_reason() {
             return clarify_reason;
         }
 
-        public void setClarify_reason(float clarify_reason) {
+        public void setClarify_reason(String clarify_reason) {
             this.clarify_reason = clarify_reason;
         }
 
